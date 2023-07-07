@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div th:replace="fragment/layout::header-links"></div>
+</head>
+<body>
+<div th:replace="fragment/layout::navbar"></div>
+        <!-- -------------------------------------------------- -->
+    <div class="w-100 d-flex justify-content-end mb-5">
+        <div style="height: 328px;width: 100%;" class="position-relative" >
+          <svg style="width: 100%;height: auto;" viewBox="0 0 1332 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 196.141L55.5 222.293C111 248.445 222 300.749 333 307.287C444 313.825 555 274.597 666 222.293C777 169.989 888 104.608 999 98.0703C1110 91.5323 1221 143.837 1276.5 169.989L1332 196.141V0H1276.5C1221 0 1110 0 999 0C888 0 777 0 666 0C555 0 444 0 333 0C222 0 111 0 55.5 0H0V196.141Z" fill="#3771FE"/>
+          </svg>            
+        </div>
+        <div class="w-50 position-absolute d-flex justify-content-center">
+            <div class="card bg-uploadbox b-radius w-50 h-50 text-white mt-3">
+              <img src="https://i.pinimg.com/564x/6a/aa/01/6aaa01a2dee8c1427d64675785919ad1.jpg" alt="" class="card-img-top p-3">
+              <div class="card-body">
+                <h5 class="card-title">Sunset</h5>
+                <p class="card-text">Lorem ipsum dolor </p>
+              </div>
+             </div>
+        </div>
+    </div>
+    <!-- -------------------------------------------------- -->
+    <div class="container">
+        <div class="row text-white mb-5">
+            <div class="col-8">
+                <h3>Creating your NFT</h3>
+                <hr style="height:1px;border-width:0;color:gray;background-color:gray;" class="w-50">
+                <br>
+                <form class="w-75 mb-4">
+                    <label class="text-white">upload file<i class=" text-danger">*</i></label>
+                    <p class="text-muted">Add your Nft like pic/paint or etc.</p>
+                    <input type="file" placeholder="username" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+                    <br>
+                    <label class="text-white">Name <i class=" text-danger">*</i></label>
+                    <p class="text-muted">Add your Nft name.</p>
+                    <input type="search" placeholder="email" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+                    <br>
+                    <label class="text-white"> Description<i class=" text-danger">*</i></label>
+                    <p class="text-muted">Describe your NFT, help other users understand what's unique about it.</p>
+                    <textarea type="search" placeholder="For Example : I am john ..." aria-describedby="button-addon2" rows="5" class="form-control border-0 bg-uploadbox"></textarea>
+                   <br>
+                   <label class="text-white">Properties <i class=" text-danger">*</i></label>
+                    <p class="text-muted">List attributes that represents your NFT (color, shape, mood, etc..)</p>
+                    <input type="search" placeholder="email" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+                    <br>
+                    <label class="text-white">Collection <i class=" text-danger">*</i></label>
+                    <p class="text-muted">The collection where your NFT will appear.</p>
+                    <select type="search" placeholder="email" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+                        <option selected>choose your Gender</option>
+                        <option >select one thing</option>
+                        <option value="0">Collection-1</option>
+                        <option value="1">Collection-2</option>
+                    </select>
+                    <br>
+                    <input class="form-check-input form " type="checkbox">
+                    <label class="form-check-label mb-3" >
+                        Put on Sale (if you want put this NFT for sall so chek this)
+                    </label>
+                    <br>
+                   <input type="submit" value="Create item" class="btn bg-btn text-white" /><br>
+                   </form>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------------------------------- -->
+    <div th:replace="fragment/layout::footer"></div>
+</body>
+</html>

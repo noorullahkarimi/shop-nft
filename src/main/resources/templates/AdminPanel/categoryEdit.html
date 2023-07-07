@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - NFTMarket</title>
+    <div th:replace="fragment/adminPanel::header-links"></div>
+</head>
+
+<body class="sb-nav-fixed">
+  
+  <!-- navbar top -->
+  <div th:replace="fragment/adminPanel::navbar-up"></div>
+  
+    <div id="layoutSidenav">
+  <!-- side navbar -->
+		<div th:replace="fragment/adminPanel::sidenav"></div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4 ">
+                <!-- breadcrumb -->
+                    <ol class="breadcrumb mb-4 p-2 m-1">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">categories</li>
+                    </ol>
+                    <!-- body of the panel contain of content and tables ------------------------------------------>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table "></i>
+                            data
+                        </div>
+						<!-- this is for the edit page -->
+                        <div class="card-body" th:if="${categories!=null}">
+                        <form th:action="@{/admin/categories/update}" method="get" >
+	                      <input type="hidden" name="id" th:field="${categories.id}">
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>title</label><br>
+	                            <input type="text" placeholder="title" name="title" class="w-100" th:field="${categories.title}">
+	                        </div>
+	                        <div class="col-6">
+	                        
+	                         <label>creator</label><br>
+	                          <select class="w-100 p-1" name="creator">
+	                          <option value="0">choose one of users</option>
+	                            <option th:each="optionCateories : ${optionCateories}" th:value="${optionCateories.id}" th:text="${optionCateories.name}" ></option>
+	                          </select>
+	                        
+<!-- 	                         <label>creator</label><br> -->
+<!-- 	                            <input type="number" placeholder="creator" name="creator" class="w-100" th:field="${categories.creator}"> -->
+<!-- 	                        </div> -->
+                        </div>
+                        
+                         <div class="row mt-2">
+	                        <div class="col-6">
+	                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/categories}">cancel</a>
+	                        </div>
+	                     </div>
+                        
+                        
+<!--                          <div class="row mt-2"> -->
+<!-- 	                        <div class="col-6"> -->
+<!-- 	                        <input type="submit" value="save changes" class="btn btn-primary"/> -->
+<!-- 	                        </div> -->
+<!-- 	                        <div class="col-6"> -->
+<!-- 	                        <input type="submit" value="cancel" class="btn btn-danger"/> -->
+<!-- 	                        </div> -->
+<!-- 	                     </div> -->
+                        </form>
+                        </div>
+						<!--  this is for the adding product -->
+                        <div class="card-body" th:if="${categories==null}">
+                        <form th:action="@{/admin/categories/save}" method="get" >
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>title</label><br>
+	                            <input type="text" placeholder="title" name="title" class="w-100">
+	                        </div>
+	                        <div class="col-6">
+	                        <label>creator</label><br>
+	                          <select class="w-100 p-1" name="creator">
+	                          <option value="0">choose one of users</option>
+	                            <option th:each="optionCateories : ${optionCateories}" th:value="${optionCateories.id}" th:text="${optionCateories.name}" ></option>
+	                          </select>
+	                        </div>
+                        </div>
+                           <div class="row mt-2">
+	                        <div class="col-6">
+	                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/categories}">cancel</a>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+                    </div>
+<!--                     ----------------------------------------------------------------------------------------------------- -->
+                </div>
+            </main>
+            <div th:replace="~{'fragment/adminPanel' :: footer-adminPanel}"></div>
+        </div>
+    </div>
+     <div th:replace="fragment/adminPanel::script"></div>
+</body>
+
+</html>

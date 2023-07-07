@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - NFTMarket</title>
+    <div th:replace="fragment/adminPanel::header-links"></div>
+</head>
+
+<body class="sb-nav-fixed">
+  
+  <!-- navbar top -->
+  <div th:replace="fragment/adminPanel::navbar-up"></div>
+  
+    <div id="layoutSidenav">
+  <!-- side navbar -->
+		<div th:replace="fragment/adminPanel::sidenav"></div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                <!-- breadcrumb -->
+                    <ol class="breadcrumb mb-4 p-2 m-1">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Users</li>
+                    </ol>
+                    <!-- body of the panel contain of content and tables ------------------------------------------>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table "></i>
+                            user inputs
+                        </div>
+
+						<div class="card-body" th:if="${userDetails!=null}">
+						<form th:action="@{/admin/users/update}"  method="post" enctype="multipart/form-data">
+  							<div class="row">
+	                        <div class="col-6">
+	                        <img th:src="'/img/' + ${userDetails.img}" th:alt="${userDetails.img}" width="100px"/>
+	                        </div>
+	                     </div>
+	                      <input type="hidden"  name="id"  th:field="${userDetails.id}">
+	                        <div class="row">
+	                        <div class="col-6">
+	                        <label>image</label><br>
+	                        <input type="file" name="file"  />
+	                        </div>
+	                      </div>
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>Name</label><br>
+	                        	<input type="text" th:field="${userDetails.name}" name="name" placeholder="name" class="w-100">
+	                        </div>
+	                        <div class="col-6">
+		                         <label>UserName</label><br>
+		                         <input type="text" th:field="${userDetails.username}" name="username" placeholder="username" class="w-100">
+	                        </div>
+                        </div>
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>Password</label><br>
+	                        	<input type="password" th:field="${userDetails.password}" name="password" placeholder="password" class="w-100">
+	                        </div>
+                        </div>
+                         <div class="row">
+	                        <div class="col-6 p-3">
+	                        	<input type="checkbox"  name="enabled" th:field="${userDetails.enabled}"> enabled
+	                        </div>
+                        </div>
+                       
+                         <div class="row mt-2">
+		                    <div class="col-6">
+		                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/users}">cancel</a>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+<!--                         ----------------------------------------------- -->
+						<div class="card-body" th:if="${userDetails==null}">
+						<form th:action="@{/admin/users/save}" method="post" enctype="multipart/form-data" >
+						  <div class="row">
+	                        <div class="col-6">
+	                        <label>image</label><br>
+	                        <input type="file" name="file"  />
+	                        </div>
+	                      </div>
+						     <div class="row">
+	                        <div class="col-6">
+	                        	<label>Name</label><br>
+	                        	<input type="text"  name="name" placeholder="name" class="w-100">
+	                        </div>
+	                        <div class="col-6">
+		                         <label>UserName</label><br>
+		                         <input type="text"  name="username" placeholder="username" class="w-100">
+	                        </div>
+                        </div>
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>Password</label><br>
+	                        	<input type="password"  name="password" placeholder="password" class="w-100">
+	                        </div>
+                        </div>
+                         <div class="row">
+	                        <div class="col-6 p-3">
+	                        	<input type="checkbox"  name="enabled" > enabled
+	                        </div>
+                        </div>
+                         <div class="row mt-2">
+	                        <div class="col-6">
+	                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/users}">cancel</a>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+                    </div>
+<!--                     ----------------------------------------------------------------------------------------------------- -->
+                </div>
+            </main>
+            <div th:replace="~{'fragment/adminPanel' :: footer-adminPanel}"></div>
+        </div>
+    </div>
+     <div th:replace="fragment/adminPanel::script"></div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>safe shop</title>
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.png}" />
+    <div th:replace="fragment/headerFooter::head"></div>
+</head>
+
+<body>
+    <div class="content">
+        <!--navbar-->
+        <div class="navbar">
+            <nav class="nav">
+                <div class="menu">
+                    <img src="img/menu.svg">
+                </div>
+                <div class="shop-tilte">
+                    safe-shop
+                </div>
+                <div>
+                    <img src="img/home.svg">
+                </div>
+            </nav>
+        </div>
+        <!--start pic-header site-->
+        <div class="header-img">
+            <img src="img/img-10.jpg" alt="png"/>
+            <div class="reqtangle">
+                <p class="img-header-title">This is the most beutifull shop</p>
+                <p class="img-header-desc">with the best responsibility</p>
+                <button class="img-header-button">add to shopping cart</button>
+            </div>
+            <h5>sf</h5>
+        </div>
+        <!--start body site -->
+        <div class="product">
+            <!--title-->
+            <h1 class="product-title">our product </h1>
+            <!--product-->
+            <div class="product-items">
+                <!--cards products-->
+                
+                
+                <div th:each="products : ${products}" class="card">
+                    <img th:src="'/img/'+${products.getImg()}" alt="png"/>
+                    <div class="product-desc">
+                        <h5 th:text="${products.getProduct_name()}"></h5>
+                        <p th:text="${products.getDescription()}"></p>
+                        <p th:text="${products.getPrice()}"></p>
+                        <button>add to shopping cart</button>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js.js"></script>
+</body>
+
+</html>

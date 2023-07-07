@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Dashboard - NFTMarket</title>
+<div th:replace="fragment/adminPanel::header-links"></div>
+</head>
+
+<body class="sb-nav-fixed">
+
+	<!-- navbar top -->
+	<div th:replace="fragment/adminPanel::navbar-up"></div>
+
+	<div id="layoutSidenav">
+		<!-- side navbar -->
+		<div th:replace="fragment/adminPanel::sidenav"></div>
+		<div id="layoutSidenav_content">
+			<main>
+			<div class="container-fluid px-4">
+				<!-- breadcrumb -->
+				<ol class="breadcrumb mb-4 p-2 m-1">
+					<li class="breadcrumb-item active">Dashboard</li>
+					<li class="breadcrumb-item active">authorities</li>
+				</ol>
+				<!-- body of the panel contain of content and tables ------------------------------------------>
+				<div class="card mb-4">
+					<div class="card-header">
+						<i class="fas fa-table "></i> authorities inputs
+					</div>
+
+					<!--  this is for the adding product -->
+					<div class="card-body" th:if="${authorities==null}">
+						<form th:action="@{/admin/authorities/register}" method="get">
+							<label>what user can access to below authorities?</label><br>
+							<div class="row">
+								<div class="col-6">
+									<select class="w-100 p-1" name="username">
+										<option th:each="user : ${user}" th:value="${user.username}"
+											th:text="${user.name}"></option>
+									</select>
+								</div>
+							</div>
+							<hr>
+							<label>what access this user have?</label>
+							<div class="row">
+								<div class="col-6">
+									<input type="checkbox" value="1" name="authorities"> Admin Panel(read only) <br>
+									<input type="checkbox" value="2" name="authorities"> User Detail <br> 
+									<input type="checkbox" value="3" name="authorities"> Products <br> 
+									<input type="checkbox" value="4" name="authorities"> Collections <br> 
+									<input type="checkbox" value="5" name="authorities"> Categories <br> 
+									<input type="checkbox" value="6" name="authorities"> Authorities
+								</div>
+							</div>
+
+							<div class="row mt-2">
+								<div class="col-6">
+									<input type="submit" value="save" class="btn btn-primary w-100" />
+								</div>
+								<div class="col-6">
+									<a class="btn btn-danger w-100"
+										th:href="@{/admin/authorities/}">cancel</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!--                     ----------------------------------------------------------------------------------------------------- -->
+			</div>
+			</main>
+			<div th:replace="~{'fragment/adminPanel' :: footer-adminPanel}"></div>
+		</div>
+	</div>
+	<div th:replace="fragment/adminPanel::script"></div>
+</body>
+
+</html>

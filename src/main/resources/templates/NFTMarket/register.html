@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <div th:replace="fragment/layout::header-links"></div>
+</head>
+<body>
+<div th:replace="fragment/layout::navbar"></div>
+      <!-- -------------------------------------------------- -->
+      <div class="container mt-5">
+        <div class="row text-white d-flex flex-row justify-content-center">
+          <div class="col-8 mb-4 ">
+            <div class="card b-radius bg-color d-flex flex-column justify-content-center align-items-center" style="border-radius: 30px;border:solid thin grey;">
+             <h3 class="text-white text-center mt-3">Register</h3><br>
+             <p class="text-muted text-center">Do you have account?<a th:href="@{/loginCllients}">click here</a></p>
+             <form class="w-75 mb-4" th:action="@{/createCllients}" method="post">
+               <label class="text-white"><i class="fa fa-user text-white"></i> username<i class=" text-danger">*</i></label>
+               <input type="text" placeholder="username" name="username" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+               <br>
+               <label class="text-white"><i class="fa fa-envelope text-white"></i> email<i class=" text-danger">*</i></label>
+               <input type="email" placeholder="email" name="name"aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+               <br>
+               <label class="text-white"><i class="fa fa-lock text-white"></i> password<i class=" text-danger">*</i></label>
+               <input type="password" placeholder="password" name="password" aria-describedby="button-addon2" class="form-control border-0 bg-uploadbox">
+              <br>
+              <input type="submit" value="register" class="btn bg-btn text-white" /><br>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+ <!-- -------------------------------------------------- -->
+ <div th:replace="fragment/layout::footer"></div>
+</body>
+</html>

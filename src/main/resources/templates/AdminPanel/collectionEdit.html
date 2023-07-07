@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - NFTMarket</title>
+    <div th:replace="fragment/adminPanel::header-links"></div>
+</head>
+
+<body class="sb-nav-fixed">
+  
+  <!-- navbar top -->
+  <div th:replace="fragment/adminPanel::navbar-up"></div>
+  
+    <div id="layoutSidenav">
+  <!-- side navbar -->
+		<div th:replace="fragment/adminPanel::sidenav"></div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                <!-- breadcrumb -->
+                    <ol class="breadcrumb mb-4 p-2 m-1">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">collection</li>
+                    </ol>
+                    <!-- body of the panel contain of content and tables ------------------------------------------>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table "></i>
+                            collection inputs
+                        </div>
+						<!-- this is for the edit page -->
+                        <div class="card-body" th:if="${collection!=null}">
+                        <div class="row">
+	                        <div class="col-6">
+	                        <img th:src="'/img/' + ${collection.cover}" th:alt="${collection.cover}" width="100px"/>
+	                        </div>
+	                     </div> 
+						<form th:action="@{/admin/collections/save}"  method="post" enctype="multipart/form-data">
+						 <div class="row">
+	                        <div class="col-6">
+	                        <label>image</label><br>
+	                        <input type="file" name="file"  />
+	                        </div>
+	                      </div>
+	                      <input type="hidden"  name="id"  th:field="${collection.id}">
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>name</label><br>
+	                        	<input type="text" th:field="${collection.name_collection}" name="name" placeholder="name" class="w-100">
+	                        </div>
+	                        <div class="col-6">
+	                           <label>creator</label><br>
+	                          <select class="w-100 p-1" id="s" name="creator">
+	                            <option>choose one of creators</option>
+	                            <option th:each="optionUsers : ${optionUsers}" th:value="${optionUsers.id}" th:text="${optionUsers.name}" ></option>
+	                          </select>
+	                        </div>
+                        </div>
+                         <div class="row mt-2">
+	                        <div class="col-6">
+	                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/collections}">cancel</a>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+						<!--  this is for the adding collection -->
+						<div class="card-body" th:if="${collection==null}">
+                        <div class="row">
+	                        <div class="col-6">
+	                        <img src="/img/favicon.ico" alt="img.png" width="100px"/>
+	                        </div>
+	                     </div> 
+						<form th:action="@{/admin/collections/save}"  method="post" enctype="multipart/form-data">
+						 <div class="row">
+	                        <div class="col-6">
+	                        <label>image</label><br>
+	                        <input type="file" name="file"  />
+	                        </div>
+	                      </div>
+                        <div class="row">
+	                        <div class="col-6">
+	                        	<label>name</label><br>
+	                        	<input type="text" name="name" placeholder="name" class="w-100">
+	                        </div>
+	                        <div class="col-6">
+	                          <label>creator</label><br>
+	                          <select class="w-100 p-1" name="creator">
+	                          <option value="0">choose one of creators</option>
+	                            <option th:each="optionUsers : ${optionUsers}"  th:text="${optionUsers.name}" th:value="${optionUsers.id}"></option>
+	                          </select>
+	                        </div>
+                        </div>
+                          <div class="row mt-2">
+	                        <div class="col-6">
+	                        <input type="submit" value="save" class="btn btn-primary w-100"/>
+	                        </div>
+	                        <div class="col-6">
+	                        	<a class="btn btn-danger w-100" th:href="@{/admin/collections}">cancel</a>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+                    </div>
+<!--                     ----------------------------------------------------------------------------------------------------- -->
+                </div>
+            </main>
+            <div th:replace="~{'fragment/adminPanel' :: footer-adminPanel}"></div>
+        </div>
+    </div>
+     <div th:replace="fragment/adminPanel::script"></div>
+</body>
+
+</html>

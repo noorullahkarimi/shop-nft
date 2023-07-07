@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body >
+
+<!-- <div th:object="${products}"></div> -->
+
+<form th:action="@{/uploadfile}" enctype="multipart/form-data" method="POST" >
+<input type="file" name="file">
+<input type="text" placeholder="price" name="uploader">
+<input type="submit" value="submit">
+<a href="" onclick="upload()">press</a>
+</form>
+
+
+<div th:replace="fragment/adminPanel::script"></div>
+<script>
+function upload(){	
+var form = $('form')[0]; // You need to use standard javascript object here
+var formData = new FormData(form);
+var formData = new FormData();
+formData.append('section', 'general');
+formData.append('action', 'previewImg');
+// Attach file
+formData.append('image', $('input[type=file]')[0].files[0]); 
+$.ajax({
+    url: '/uploadfile',
+    data: formData,
+    type: 'POST',
+    contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+    processData: false, // NEEDED, DON'T OMIT THIS
+    // ... Other options like success and etc
+    success: function(msg) {
+//         $(".modal .ajax_data").html("<pre>" + msg +
+//             "</pre>");
+//         $('#close').hide();
+alert(msg);
+    },
+});
+}
+</script>
+</body>
+</html>

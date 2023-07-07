@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artists</title>
+    <div th:replace="fragment/layout::header-links"></div>
+</head>
+<div>
+   <div th:replace="fragment/layout::navbar"></div>
+      <!-- ---------------------title----------------------------- -->
+      <div class="container mt-5 mb-5">
+        <div class="d-flex flex-row">
+          <div class="w-100">
+            <h3 class="text-white text-center mb-5">Artists</h3><br>
+          </div>
+        </div>
+      </div>
+        <!-- -------------------------------------------------- -->
+        <div class="container mt-5">
+            <div class="d-flex flex-row">
+              <div class="w-50">
+                <a th:href="@{/productsList}" class="btn text-white  text-left m-1 p-1 b-radius w-25 text-center">NFTs <small class="text-muted">485548</small></a>
+                <a th:href="@{/collectionList}" class="btn text-white  text-left m-1 p-1 b-radius w-25 text-center">Collections <small class="text-muted">485548</small></a>
+                <a th:href="@{/artists}" class="btn text-white  text-left m-1 p-1 b-radius w-25 text-center">creator <small class="text-muted">485548</small></a>
+              </div>
+              <div class="w-50 text-right text-white">
+                <small class="text-muted">sort by price </small>
+              </div>
+            </div>
+            <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+            <div class="row text-white mt-5">
+            
+            
+              <div class="col-lg-4 mb-4" th:each="users : ${users}">
+                  <div class="card bg-uploadbox b-radius">
+                      <a href="" class="btn text-white disabled text-left m-2 p-1 b-radius w-50 text-left">profile</a>
+                      <div class="w-100 d-flex justify-content-center">
+<!--                         <img th:src="'/img/'+${users.getImg()}" alt="" class="card-img-top p-3 rounded-circle w-50"> -->
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).webp" alt="" class="card-img-top p-3 rounded-circle w-50">
+                      </div>
+                    <div class="card-body text-center">
+                      <h5 class="card-title" th:text="'@'+${users.getName()}"></h5>
+                      <p class="card-text" th:text="${users.getUsername()}"></p>
+                    </div>
+                   </div>
+                  </div>
+            
+
+<!-- 		 <div class="col-lg-4 mb-4 "> -->
+<!--           <div class="card bg-uploadbox b-radius"> -->
+<!--             <img src="https://i.pinimg.com/564x/62/45/8b/62458bd1baedfd76c2698c0504ea7958.jpg" alt="" class="card-img-top p-3 position-relative"> -->
+<!--             <div class="rounded-circle position-absolute d-flex flex-row justify-content-center w-100 align-items-end h-75" > -->
+<!--               <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).webp" alt="" class="w-25 card-img-top rounded-circle" > -->
+<!--             </div> -->
+<!--             <div class="card-body text-center"> -->
+<!--                 <h5 class="card-title">@Sunset</h5> -->
+<!--                 <p class="card-text">Lorem ipsum dolor </p>  -->
+<!--             </div> -->
+<!--            </div> -->
+<!--           </div> -->
+<!--           <div class="col-lg-4 mb-4 "> -->
+<!--             <div class="card bg-uploadbox b-radius"> -->
+<!--               <img src="https://i.pinimg.com/564x/e2/27/cb/e227cbe1df51a6aafb674a2b47a6c020.jpg" alt="" class="card-img-top p-3 position-relative"> -->
+<!--               <div class="rounded-circle position-absolute d-flex flex-row justify-content-center w-100 align-items-end h-75" > -->
+<!--                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).webp" alt="" class="w-25 card-img-top rounded-circle" > -->
+<!--               </div> -->
+<!--               <div class="card-body text-center"> -->
+<!--                 <h5 class="card-title">@Sunset</h5> -->
+<!--                 <p class="card-text">Lorem ipsum dolor </p>  -->
+<!--               </div> -->
+<!--              </div> -->
+<!--             </div> -->
+<!--             <div class="col-lg-4 mb-4 "> -->
+<!--               <div class="card bg-uploadbox b-radius"> -->
+<!--                 <img src="https://i.pinimg.com/564x/c5/3b/d2/c53bd2e3e855ec52131781ca3cfb05b3.jpg" alt="" class="card-img-top p-3 position-relative"> -->
+<!--                 <div class="rounded-circle position-absolute d-flex flex-row justify-content-center w-100 align-items-end h-75" > -->
+<!--                   <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).webp" alt="" class="w-25 card-img-top rounded-circle" > -->
+<!--                 </div> -->
+<!--                 <div class="card-body text-center"> -->
+<!--                   <h5 class="card-title">@Sunset</h5> -->
+<!--                   <p class="card-text">Lorem ipsum dolor </p>  -->
+<!--                 </div> -->
+<!--                </div> -->
+<!--               </div> -->
+
+            </div>
+           </div>
+        </div>
+
+         <!-- -------------------------------------------------- -->
+  <div th:replace="fragment/layout::footer"></div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop safeparadise</title>
+    <style>
+    :root{
+    --color-bg:#050929;
+    --color-btn:#3771fe;
+    --color-
+    }
+    .chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.black-bg {
+background: #0c0d0e !important;
+}
+.blue-bg{
+background: #4d4f9d;
+}
+    </style>
+    <div th:replace="fragment/layout::head"></div>
+</head>
+<body class="black-bg">
+
+<div th:replace="fragment/layout::script"></div>
+   
+<!-- products -->
+<div class="container mb-5 mt-5">
+<div class="row">
+	<div class="col-6">
+		<h3 class="text-white">archive</h3>
+	</div> 
+	<div class="col-6 text-right">
+		<a href="#">
+			<h6>view all </h6>
+		</a>
+	</div>
+ </div>
+	<div class="row">
+	<div class="col-3" th:each="products : ${products}">
+			  
+		<div class="card-deck-wrapper">
+		  <div class="card-deck">
+		    <div class="card bg-dark" >
+		      <img class="card-img-top " th:src="'/img/'+${products.getImg()}" alt="Card image cap">
+		      <div class="card-block" style="padding:11px;">
+		        <h4 class="card-title text-white" th:text="${products.getProduct_name()}"></h4>
+		        <p class="card-text text-white" th:text="${products.getDescription()}"></p>
+		        <p class="card-text text-white" th:text="${products.getPrice()}"></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		   
+	</div>
+	</div>
+</div>
+<!-- products -->
+<!-- profile -->
+<div class="container mb-5 mt-5">
+<h3 class="text-white text-left mb-5">Top Seller</h3>
+	<div class="row text-center">
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white ">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	<div class="col-4 mb-3">
+		<div class="chip bg-dark text-white">
+		  <img th:src="@{/img/img-1.jpg}" alt="Person" width="96" height="96">
+		  John Doe
+		</div>
+	</div>
+	
+	</div>
+</div>
+<!-- profile -->
+<!-- coollection -->
+<div class="container mb-5 mt-5">
+<h3 class="text-white text-left mb-5">Popular Collection</h3>
+	<div class="row text-center">
+	
+	
+<div class="container">
+    <div class="row text-center">
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="rounded shadow-sm py-5 px-4 bg-dark">
+            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0 text-white">Manuella Nevoresky</h5><span class="small text-uppercase text-muted text-white">CEO - Founder</span>
+              <!--    <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                </ul>  -->
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="rounded shadow-sm py-5 px-4 bg-dark">
+            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0 text-white">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="rounded shadow-sm py-5 px-4 bg-dark">
+            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0 text-white">Tom Sunderland</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="rounded shadow-sm py-5 px-4 bg-dark">
+            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0 text-white">John Tarly</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+
+            </div>
+        </div><!-- End -->
+    </div>
+</div>
+		
+	</div>
+</div>
+<!-- coollection -->
+<!-- footer -->
+<div th:replace="fragment/layout::footer"></div>
+    
+</body>
+</html>

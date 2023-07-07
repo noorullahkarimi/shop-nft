@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <div th:replace="fragment/layout::header-links"></div>
+</head>
+<body>
+  <div th:replace="fragment/layout::navbar"></div>
+    <!-- -------------------------------------------------- -->
+    <div class="container">
+        <div class="row text-white mb-5">
+            <div class="col-4 list-group">
+                <img src="https://i.pinimg.com/564x/6a/aa/01/6aaa01a2dee8c1427d64675785919ad1.jpg" alt="" class="card-img-top p-3">
+            </div>
+            <div class="col-8">
+                <h3>apt monkey</h3>
+                <p class="text-white">From <small class="txt-btn"> 0.074 ETH</small> available</p>
+                <div class="d-flex flex-row justify-content-start ">
+                    <a href="" class="b-radius bg-uploadbox text-white text-center w-auto pl-2 pr-2 m-1">
+                        <h6><i class="fa fa-heart"></i> 2365</h6>
+                    </a>
+                    <a href="" class="b-radius bg-uploadbox text-white text-center w-auto pl-2 pr-2 m-1">
+                        <h6><i class="fa fa-eye"></i> 456</h6>
+                    </a>
+                    <a href="" class="b-radius bg-uploadbox text-white text-center w-auto pl-2 pr-2 m-1">
+                        <h6><i class="fa fa-share"></i> share</h6>
+                    </a>
+                  </div>
+                  <hr style="height:1px;border-width:0;color:gray;background-color:gray;" class="w-50">
+                  <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        <p class="text-muted">creator</p>
+                        <a href="" class="b-radius bg-uploadbox text-white text-center w-auto pl-2 pr-2 m-1">john-lee</a>
+                    </div>
+                    <div>
+                        <p class="text-muted">collection</p>
+                        <a href="" class="b-radius bg-uploadbox text-white text-center w-auto pl-2 pr-2 m-1">Collection-1</a>
+                    </div>
+                  </div>
+                  <a href="" class="btn bg-btn text-white mt-3">Buy Now</a>
+            </div>
+        </div>
+    </div>
+        <!-- -------------------------------------------------- -->
+      <div th:replace="fragment/layout::footer"></div>
+    </body>
+    </html>

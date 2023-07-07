@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table >
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>price</th>
+    <th>description</th>
+    <th>action</th>
+  </tr>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.getId()}"></td>
+    <td th:text="${product.getProduct_name()}"></td>
+    <td th:text="${product.getPrice()}"></td>
+    <td th:text="${product.getDescription()}"></td>
+    <td><a th:href="@{/edit/{id}(id=${product.getId()})}">click</a></td>
+  </tr>
+</table>
+<button>new</button>
+</body>
+</html>

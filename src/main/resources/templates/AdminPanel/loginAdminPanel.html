@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - NFTMarket</title>
+    <div th:replace="fragment/adminPanel::header-links"></div>
+</head>
+
+<body class="sb-nav-fixed">
+  
+  <!-- navbar top -->
+  
+    <div id="layoutSidenav " class="d-flex justify-content-center pt-5">
+  <!-- side navbar -->
+		
+                    <!-- body of the panel contain of content and tables ------------------------------------------>
+                    <div class="card mb-4  w-50">
+                        <div class="card-header">
+                            <i class="fas fa-table "></i>
+                        </div>
+<!--                         ----------------------------------------------- -->
+						<div class="card-body">
+						<form th:action="@{/login}" method="post">
+						     <div class="row">
+	                      
+	                        <div class="col-12">
+		                         <label>UserName</label><br>
+		                         <input type="text"  name="username" placeholder="username" class="w-100">
+	                        </div>
+                        </div>
+                        <div class="row">
+	                        <div class="col-12">
+	                        	<label>Password</label><br>
+	                        	<input type="password"  name="password" placeholder="password" class="w-100">
+	                        </div>
+                        </div>
+                         <div class="row mt-2">
+	                        <div class="col-12">
+	                        <input type="submit" value="login" class="btn btn-primary w-100"/>
+	                        </div>
+	                     </div>
+                        </form>
+                        </div>
+<!--                     ----------------------------------------------------------------------------------------------------- -->
+        </div>
+    </div>
+     <div th:replace="fragment/adminPanel::script"></div>
+</body>
+
+</html>
